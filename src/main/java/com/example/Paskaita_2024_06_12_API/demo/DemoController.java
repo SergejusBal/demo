@@ -1,6 +1,8 @@
 package com.example.Paskaita_2024_06_12_API.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,24 +18,14 @@ public class DemoController {
     public int getKleintasID(String name, String password){
         return msq_ui.getKlientoId(name,password);
     }
-    @GetMapping("/setKlientas")
-    public String setKlientas(String name, String password){
-        return msq_ui.setKlientas(name,password);
+    @PostMapping("/setKlientas")
+    public String setKlientas(@RequestBody Klientas klientas){
+        return msq_ui.setKlientas(klientas);
     }
 
-    @GetMapping("/setKleintoInfo")
-    public String updateInformation(int id, String name, String surname, String tel_number, String city){
-        Klientas klientas = new Klientas();
-        klientas.setId(id);
-        klientas.setName(name);
-        klientas.setSurname(surname);
-        klientas.setTelefonoNumeris(tel_number);
-        klientas.setMiestas(city);
-
+    @PostMapping("/setKleintoInfo")
+    public String updateInformation(@RequestBody Klientas klientas){
         return msq_ui.setKlientoInfo(klientas);
     }
-
-
-
 
 }

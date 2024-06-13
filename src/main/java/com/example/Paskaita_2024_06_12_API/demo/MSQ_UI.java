@@ -39,7 +39,7 @@ public class MSQ_UI {
         return klientoId;
     }
 
-    public String setKlientas(String name, String password){
+    public String setKlientas(Klientas klientas){
 
         String sql = "INSERT INTO Klientas (username, password) VALUES (?,?);";
         String message = "user successfully added";
@@ -48,8 +48,8 @@ public class MSQ_UI {
             Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement statement = connection.prepareStatement(sql);
 
-            statement.setString(1,name);
-            statement.setString(2,password);
+            statement.setString(1,klientas.getUsername());
+            statement.setString(2,klientas.getPassword());
             statement.executeUpdate();
 
         } catch (SQLException e) {
