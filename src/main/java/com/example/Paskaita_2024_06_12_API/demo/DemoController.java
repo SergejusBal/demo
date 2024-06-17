@@ -1,6 +1,5 @@
 package com.example.Paskaita_2024_06_12_API.demo;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,18 +13,29 @@ public class DemoController {
 
 
 
-    @GetMapping("/getKlientasID")
-    public int getKleintasID(String name, String password){
-        return msq_ui.getKlientoId(name,password);
-    }
-    @PostMapping("/setKlientas")
-    public String setKlientas(@RequestBody Klientas klientas){
-        return msq_ui.setKlientas(klientas);
+//    @GetMapping("/getKlientasID")
+//    public int getKleintasID(String name, String password){
+//        return msq_ui.getKlientoId(name,password);
+//    }
+
+    @PostMapping("/authorizeKlientas")
+    public int authorizeKlientas(@RequestBody Klientas klientas) {
+        return msq_ui.authorizeKlientas(klientas);
     }
 
-    @PostMapping("/setKleintoInfo")
-    public String updateInformation(@RequestBody Klientas klientas){
+    @PostMapping("/createKlientas")
+    public String createKlientas(@RequestBody Klientas klientas){
+        return msq_ui.createKlientas(klientas);
+    }
+
+    @PostMapping("/setKlientoInfo")
+    public String setKlientoInfo(@RequestBody Klientas klientas){
         return msq_ui.setKlientoInfo(klientas);
+    }
+
+    @PostMapping("/resetPassword")
+    public String resetPassword(@RequestBody Klientas klientas){
+        return msq_ui.resetPassword(klientas);
     }
 
 }

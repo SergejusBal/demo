@@ -3,14 +3,16 @@ package com.example.Paskaita_2024_06_12_API.demo;
 public class Klientas {
 
     private int id;
-    private String name;
-    private String surname;
     private String username;
     private String password;
-    private String telefonoNumeris;
-    private String miestas;
+    private String email;
+    private String name;
+    private String surname;
+    private String phoneNumber;
+    private String city;
 
-    public Klientas() {
+    public String getEmail() {
+        return email;
     }
 
     public int getId() {
@@ -33,12 +35,16 @@ public class Klientas {
         return password;
     }
 
-    public String getTelefonoNumeris() {
-        return telefonoNumeris;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String getMiestas() {
-        return miestas;
+    public String getCity() {
+        return city;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setId(int id) {
@@ -61,11 +67,11 @@ public class Klientas {
         this.password = password;
     }
 
-    public void setTelefonoNumeris(String telefonoNumeris) {
-        this.telefonoNumeris = telefonoNumeris;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setMiestas(String miestas) {
-        this.miestas = miestas;
+    public void setCity(String city) {
+        this.city = city;
     }
 }
